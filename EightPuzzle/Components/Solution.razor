@@ -1,0 +1,31 @@
+﻿<div>
+    <div class="container">
+        <select @bind="selectedAlgorithm">
+            <option value=""></option>
+            <option value="AStar">A* (Peças fora do lugar)</option>
+            <option value="BranchAndBound">Branch and Bound (Custo Acumulado)</option>
+        </select>
+        <button class="btn btn-warning" @onclick="Solve">Solucionar</button>
+    </div>
+
+    <br /><br />
+    @if(solveStatus == 1)
+    {
+        int i = 1;
+        <p>Quantidade de passos realizados: @Trail.Count</p>
+        <p>Tempo gasto para a resolução: @elapsedTime.ElapsedMilliseconds ms</p>
+        @foreach(var step in Trail)
+        {
+            var actualStep = step;
+            var stepTitle = $"Passo {i}";
+
+            <br />
+            <Card Title="@stepTitle">
+                <PuzzleTable @bind-Rows="actualStep" AllowDrag="false"></PuzzleTable>
+            </Card>
+            i++;
+        }
+    } else if(solveStatus == -1){
+        <h1>Resolvendo</h1>
+    }
+</div>

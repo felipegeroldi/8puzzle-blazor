@@ -1,0 +1,21 @@
+﻿.btn-shuffle {
+    margin-top: 15px;
+}
+
+.puzzle-table {
+    clear: left;
+}
+
+.puzzle-table ul {
+    padding: 0px;
+    margin: 0px;
+    list-style-type: none;
+    font-size: 2em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.puzzle-table ul li {
+    float: left;
+    background-color: blue;
+    padding: 5px 20px;
+}

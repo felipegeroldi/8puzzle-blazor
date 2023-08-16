@@ -1,0 +1,5 @@
+﻿.card {
+    display: flex;
+    float: left;
+    margin: 10px;
+}

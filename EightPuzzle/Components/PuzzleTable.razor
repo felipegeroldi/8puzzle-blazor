@@ -1,0 +1,49 @@
+﻿<div>
+    @foreach (var row in Rows)
+    {
+        <div class="puzzle-table">
+            <ul ondragover="event.preventDefault()">
+                @foreach (var tile in row)
+                {
+                    if (AllowDrag)
+                    {
+                        <li draggable="true" style="background-color:@tile.Color;" @key="tile.Value" tabindex="1"
+                            @ondrop="@(() => Drop(tile))" @ondrag="@(() => StartDrag(tile))">
+                            @{
+                                if (tile.Value != 0)
+                                {
+                                    <span>@tile.Value</span>
+                                }
+                                else
+                                {
+                                    <span>&nbsp;&nbsp;</span>
+                                }
+                            }
+                        </li>
+                    } else
+                    {
+                        <li draggable="false" style="background-color:@tile.Color;" tabindex="1">
+                            @{
+                                if (tile.Value != 0)
+                                {
+                                    <span>@tile.Value</span>
+                                }
+                                else
+                                {
+                                    <span>&nbsp;&nbsp;</span>
+                                }
+                            }
+                        </li>
+                    }
+                }
+            </ul>
+        </div>
+    }
+
+    @{
+        if (AllowShuffle)
+        {
+            <button @onclick="ShuffleTiles" class="btn btn-primary btn-shuffle"><span class="oi oi-random"></span> Embaralhar</button>
+        }
+    }
+</div>

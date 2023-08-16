@@ -1,0 +1,22 @@
+﻿@page "/Puzzle"
+@using EightPuzzle.Components
+@using EightPuzzle.Models 
+
+<h3>Definir estados</h3>
+<p>Defina o estados inicial e final do 8 Puzzle.</p>
+<div class="row">
+    <div>
+        <div>
+            <Card Title="Estado Inicial">
+                <PuzzleTable @bind-Rows="InitialState" AllowShuffle="true"></PuzzleTable>
+            </Card>
+            <Card Title="Estado Final">
+                <PuzzleTable @bind-Rows="FinalState" AllowShuffle="true"></PuzzleTable>
+            </Card>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <Solution @bind-InitialState="InitialState" @bind-FinalState="FinalState"></Solution>
+</div>
+
